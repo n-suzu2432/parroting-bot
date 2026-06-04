@@ -18,6 +18,7 @@ receiver.app.use((req: Request, res: Response, next: NextFunction) => {
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
   receiver,
+  processBeforeResponse: true,
 });
 
 app.event('app_mention', async ({ event, client, logger }) => {
